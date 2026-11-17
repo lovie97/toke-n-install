@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101613">
+  <meta name="description" content="Install Toke-n on iPhone with SideStore. A clear, step-by-step guide.">
+  <title>Install Toke-n</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to guide</a>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Toke-n install guide home">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M12 7h16l8 13-8 13H12L4 20z"/><path d="M16 13h8v14h-8z"/><path d="M12 17h16v6H12z"/></svg>
+      <span>Toke-n <span class="brand-light">/ Install</span></span>
+    </a>
+    <a class="top-link" href="https://github.com/lovie97/toke-n-install">Source &amp; checks <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="main">
+    <section class="intro" id="top" aria-labelledby="page-title">
+      <p class="eyebrow"><span class="status-dot"></span> iPhone · iOS 27 or later</p>
+      <h1 id="page-title">Toke-n,<br><em>on your iPhone.</em></h1>
+      <p class="lede">Use your own API provider in a familiar chat app. Follow the steps below, or skip straight to the download if SideStore is already working.</p>
+      <div class="intro-meta"><span>Setup runs from your iPhone</span></div>
+      <aside class="preview-note" aria-label="Installation test status">
+        <span class="note-icon" aria-hidden="true">i</span>
+        <p><strong>Current test status</strong><br>SideStore installation and full build 19 have been reported working on one iPhone. Public build 20 has not been physically tested; its first refresh through SideStore is unverified. iPad has not been physically tested.</p>
+      </aside>
+    </section>
+
+    <section class="choice-section" aria-labelledby="choose-title">
+      <div class="section-head"><div><p class="eyebrow">Choose your starting point</p><h2 id="choose-title">Where are you now?</h2></div>
+        <div class="choice-tabs" role="tablist" aria-label="Installation starting point">
+          <button class="choice-tab" id="tab-new" role="tab" aria-selected="true" aria-controls="path-new" tabindex="0">Starting fresh</button>
+          <button class="choice-tab" id="tab-existing" role="tab" aria-selected="false" aria-controls="path-existing" tabindex="-1">Have SideStore</button>
+        </div>
+      </div>
+
+      <div id="path-new" class="path-panel" role="tabpanel" aria-labelledby="tab-new">
+        <div class="steps">
+          <details class="step" open><summary><span class="step-number">01</span><span class="step-title">Prepare your iPhone</span><span class="summary-hint">Apps, Wi-Fi, and Developer Mode</span></summary>
+            <div class="step-body"><p>Use an iPhone on iOS 27 or later. Plug it in and connect to Wi-Fi.</p>
+              <ul class="check-list"><li><a href="https://apps.apple.com/app/open-minis/id6759188481">Install Open Minis <span aria-hidden="true">↗</span></a> from the App Store (version 1.16 or newer).</li><li><a href="https://apps.apple.com/app/localdevvpn/id6755608044">Install LocalDevVPN <span aria-hidden="true">↗</span></a> from the App Store.</li></ul>
+              <p>Open Minis and allow Local Network and Notifications when iOS asks. In Minis, open <strong>Settings → Network → Local Discovery</strong> and turn it on. Open LocalDevVPN and connect the VPN.</p>
+              <p>On iPhone, go to <strong>Settings → Privacy &amp; Security → Developer Mode</strong>, turn it on, then restart and confirm. If the toggle is absent on a fresh phone, stop: this route has not been verified for enabling it.</p>
+            </div>
+          </details>
+          <details class="step"><summary><span class="step-number">02</span><span class="step-title">Pair your iPhone</span><span class="summary-hint">Run the setup command in Minis</span></summary>
+            <div class="step-body"><p>In Open Minis, open <strong>terminal icon → Shell Terminal</strong> and paste this command. It downloads the published setup script and runs it.</p>
+              <div class="command"><code>wget -qO /tmp/toke-setup.sh https://lovie97.github.io/toke-n-install/setup.sh &amp;&amp; sh /tmp/toke-setup.sh</code><button class="copy-button" type="button" aria-label="Copy setup command" data-copy="wget -qO /tmp/toke-setup.sh https://lovie97.github.io/toke-n-install/setup.sh && sh /tmp/toke-setup.sh"><span aria-hidden="true">▢</span><span class="copy-label">Copy</span></button></div>
+              <p>When the script says it is ready, start pairing and leave the silent player open. On iPhone, open <strong>Settings → Privacy &amp; Security → Developer Mode → Pair with siboot</strong>. Enter your passcode and pairing code locally when asked.</p>
+              <p>Enter your Apple Account details only on your own iPhone. Return to Minis after pairing and keep it open until SideInstaller finishes installing. If asked, trust the developer under Settings → General → VPN &amp; Device Management.</p>
+              <p class="quiet-link"><a href="https://github.com/lovie97/toke-n-install/blob/main/setup.sh">Review setup.sh before running <span aria-hidden="true">↗</span></a> <span>·</span> <a href="https://github.com/lovie97/toke-n-install/blob/main/SHA256SUMS.txt">SHA-256 checks <span aria-hidden="true">↗</span></a></p>
+            </div>
+          </details>
+          <details class="step"><summary><span class="step-number">03</span><span class="step-title">Install SideStore</span><span class="summary-hint">Continue in SideInstaller</span></summary>
+            <div class="step-body"><p>Open SideInstaller on your iPhone. Use the same Apple Account, confirm the team, make sure LocalDevVPN is connected, then choose <strong>SideStore → Nightly → Install SideStore</strong>.</p><p>If SideInstaller reports error 7460, run the repair command from Minis:</p>
+              <div class="command"><code>wget -qO /tmp/toke-repair.sh https://lovie97.github.io/toke-n-install/repair.sh &amp;&amp; sh /tmp/toke-repair.sh</code><button class="copy-button" type="button" aria-label="Copy repair command" data-copy="wget -qO /tmp/toke-repair.sh https://lovie97.github.io/toke-n-install/repair.sh && sh /tmp/toke-repair.sh"><span aria-hidden="true">▢</span><span class="copy-label">Copy</span></button></div>
+              <p>The repair opens a local page. Enter the Apple Account email you used in both apps, tap <strong>Send key to SideInstaller</strong>, and confirm the import there. Then retry <strong>Install SideStore</strong>. The signing key stays on your phone.</p><p class="caution">Do not revoke certificates or delete Toke-n as a workaround. If the key does not match, stop.</p>
+            </div>
+          </details>
+          <details class="step"><summary><span class="step-number">04</span><span class="step-title">Add Toke-n in SideStore</span><span class="summary-hint">Download the IPA to Files</span></summary>
+            <div class="step-body"><p>Open SideStore on your iPhone and finish its setup. Download the unsigned Toke-n IPA below, save it to Files, then in SideStore open <strong>My Apps</strong>, tap <strong>+</strong>, and select the IPA.</p>
+              <a class="download-link" href="https://github.com/lovie97/toke-n-install/releases/download/v0.1.0-build20/Toke-n-0.1.0-build20-sidestore-unsigned.ipa"><span class="download-icon" aria-hidden="true">↓</span><span><strong>Get Toke-n IPA</strong><small>SideStore release · v0.1.0 build 20</small></span><span class="external" aria-hidden="true">↗</span></a>
+              <p class="quiet-link"><a href="https://github.com/lovie97/toke-n-install/releases/tag/v0.1.0-build20">Release notes <span aria-hidden="true">↗</span></a> · <a href="https://github.com/lovie97/toke-n-install/blob/main/VERSIONS.md">SHA-256 and version details <span aria-hidden="true">↗</span></a></p>
+            </div>
+          </details>
+          <details class="step"><summary><span class="step-number">05</span><span class="step-title">Connect your provider</span><span class="summary-hint">Set your own API details</span></summary>
+            <div class="step-body"><p>Open Toke-n and enter your provider’s <strong>API URL, API key, and model</strong>. Use the values supplied by your provider. Send a short test message to check the connection. This guide does not ask for or collect your API key.</p><p>Toke-n does not renew itself; SideStore manages signing and renewal. For each refresh, turn on LocalDevVPN and open <strong>SideStore → My Apps → Refresh All</strong>. Refresh SideStore and Toke-n every few days, before their seven-day expiry, and check the expiry shown in SideStore. Background refresh is not guaranteed.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <div id="path-existing" class="path-panel" role="tabpanel" aria-labelledby="tab-existing" hidden>
+        <div class="steps">
+          <details class="step" open><summary><span class="step-number">01</span><span class="step-title">Check your setup</span><span class="summary-hint">Skip pairing if SideStore already works</span></summary>
+            <div class="step-body"><p>Open SideStore and make sure it is set up. Connect LocalDevVPN before installing or refreshing.</p><p>If SideStore is not working yet or this iPhone has not been paired, follow <a href="#tab-new" data-select-tab="tab-new">steps 1–2 in Starting fresh</a> first.</p></div>
+          </details>
+          <details class="step"><summary><span class="step-number">02</span><span class="step-title">Install Toke-n</span><span class="summary-hint">Download the IPA to Files</span></summary>
+            <div class="step-body"><p>Download the unsigned IPA, save it in Files, then in SideStore open <strong>My Apps</strong>, tap <strong>+</strong>, and select the IPA.</p>
+              <a class="download-link" href="https://github.com/lovie97/toke-n-install/releases/download/v0.1.0-build20/Toke-n-0.1.0-build20-sidestore-unsigned.ipa"><span class="download-icon" aria-hidden="true">↓</span><span><strong>Get Toke-n IPA</strong><small>SideStore release · v0.1.0 build 20</small></span><span class="external" aria-hidden="true">↗</span></a>
+              <p class="quiet-link"><a href="https://github.com/lovie97/toke-n-install/releases/tag/v0.1.0-build20">Release notes <span aria-hidden="true">↗</span></a> · <a href="https://github.com/lovie97/toke-n-install/blob/main/VERSIONS.md">SHA-256 and version details <span aria-hidden="true">↗</span></a></p>
+            </div>
+          </details>
+          <details class="step"><summary><span class="step-number">03</span><span class="step-title">Connect your provider</span><span class="summary-hint">Set your own API details</span></summary>
+            <div class="step-body"><p>Open Toke-n and enter your provider’s <strong>API URL, API key, and model</strong>. Use the values supplied by your provider.</p><p>Toke-n does not renew itself; SideStore manages signing and renewal. For each refresh, turn on LocalDevVPN and open <strong>SideStore → My Apps → Refresh All</strong>. Refresh SideStore and Toke-n every few days, before their seven-day expiry, and check the expiry shown in SideStore. Background refresh is not guaranteed.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="important" aria-labelledby="important-title"><div class="important-marker" aria-hidden="true">!</div><div><p class="eyebrow">Before you continue</p><h2 id="important-title">A note for current Toke-n users</h2><p>If Toke-n is already installed, stop before replacing it. Export your chats and keep the original app. If its app slot or bundle ID differs from this build, installing over it could make your data unavailable.</p></div></section>
+
+    <section class="troubleshooting" aria-labelledby="trouble-title"><p class="eyebrow">Need a hand?</p><h2 id="trouble-title">Troubleshooting</h2>
+      <details class="trouble"><summary>Developer Mode is missing</summary><p>Stop here. The path for enabling Developer Mode when the toggle is absent on a fresh phone has not been verified. Do not continue by changing profiles or certificates.</p></details>
+      <details class="trouble"><summary>“Pair with siboot” does not appear</summary><p>Check Wi-Fi, LocalDevVPN, iPhone Settings → Privacy &amp; Security → Local Network → Minis, and Minis → Settings → Network → Local Discovery. Keep Minis’s silent player open and playing while you switch to Developer Mode. If the attempt timed out, return to Minis and rerun the setup command.</p></details>
+      <details class="trouble"><summary>SideInstaller shows error 7460</summary><p>If siboot installed SideInstaller on this phone, run the repair command in Step 3. It reuses the signing key already held in Minis. It cannot recover a key created on a different device. Stop if no matching key exists; do not revoke certificates or profiles.</p></details>
+      <details class="trouble"><summary>SideStore cannot install or refresh</summary><p>Check that LocalDevVPN is connected, the phone is online, and the same Apple Account and team are in use. Refresh SideStore and Toke-n before the seven-day signing period expires. A free Apple Account has three active sideloaded app slots shared by SideInstaller, SideStore, and Toke-n; extensions may add app ID constraints.</p></details>
+      <details class="trouble"><summary>I already have Toke-n installed</summary><p>Do not delete or replace it yet. Export your chats and keep the original app until you have confirmed the app slot and bundle ID match.</p></details>
+      <details class="trouble"><summary>Does this work on iPad?</summary><p>iPad has not been physically tested. This guide is written for iPhone.</p></details>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#top"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M12 7h16l8 13-8 13H12L4 20z"/><path d="M16 13h8v14h-8z"/><path d="M12 17h16v6H12z"/></svg><span>Toke-n</span></a><div class="footer-status"><span class="status-dot"></span> Public build 20 not physically tested; first SideStore refresh unverified</div><div class="footer-links"><a href="https://github.com/lovie97/toke-n-install">GitHub</a><a href="https://github.com/lovie97/toke-n-install/blob/main/setup.sh">Script review</a><a href="https://github.com/lovie97/toke-n-install/blob/main/SHA256SUMS.txt">SHA-256</a><a href="https://github.com/lovie97/toke-n-install/blob/main/TESTING.md">Test notes</a><a href="privacy.html">Privacy</a></div><p>Static guide · No analytics · No API credentials collected</p></footer>
+</body>
+</html>
